@@ -1,8 +1,9 @@
 name: Release
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v*'
 
 permissions:
   contents: write
@@ -24,9 +25,11 @@ jobs:
         shell: cmd
         run: build.cmd
 
-      - name: Upload Application
+      - name: Create Draft Release & Upload
         uses: softprops/action-gh-release@v3
         with:
+          tag_name: ${{ github.ref_name }}
+          draft: true
           files: |
             install.ps1
             langswitch.exe
