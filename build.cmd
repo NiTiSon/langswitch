@@ -1,0 +1,1 @@
+clang -O3 -nostdlib -Xlinker /SUBSYSTEM:WINDOWS -lkernel32.lib -luser32.lib -o langswitch.exe langswitch.c
