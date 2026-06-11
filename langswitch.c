@@ -12,7 +12,7 @@
 #define null NULL
 #define main WinMainCRTStartup
 
-HHOOK	langswitch_hook;
+HHOOK    langswitch_hook;
 
 [[noreturn]]
 void report_winapi(const TCHAR *msg) {
@@ -58,7 +58,7 @@ void report_msg(const TCHAR *msg) {
 }
 
 LRESULT hook_proc(int code, WPARAM wParam, LPARAM lParam) {
-    if (code<0) {
+    if (code < 0) {
         goto NEXT;
     }
 
@@ -77,7 +77,7 @@ LRESULT hook_proc(int code, WPARAM wParam, LPARAM lParam) {
     }
 
 NEXT:
-	return CallNextHookEx(langswitch_hook, code, wParam, lParam);
+    return CallNextHookEx(langswitch_hook, code, wParam, lParam);
 }
 
 void main() {
@@ -88,22 +88,22 @@ void main() {
     }
 
     if (GetLastError() == ERROR_ALREADY_EXISTS) {
-		report_msg(_TEXT("LangSwitch is already running!"));
-		goto EXIT;
-	}
+        report_msg(_TEXT("LangSwitch is already running!"));
+        goto EXIT;
+    }
 
     langswitch_hook = SetWindowsHookEx(WH_KEYBOARD_LL, hook_proc, GetModuleHandle(0), 0);
     if (langswitch_hook == 0)
-		report_winapi(_T("SetWindowsHookEx()"));
+        report_winapi(_T("SetWindowsHookEx()"));
 
     MSG msg;
-	while (GetMessage(&msg, 0, 0, 0)) {
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
-	}
+    while (GetMessage(&msg, 0, 0, 0)) {
+        TranslateMessage(&msg);
+        DispatchMessage(&msg);
+    }
 
-	UnhookWindowsHookEx(langswitch_hook);
-	CloseHandle(hEvent);
+    UnhookWindowsHookEx(langswitch_hook);
+    CloseHandle(hEvent);
 EXIT:
     ExitProcess(0u);
 }
