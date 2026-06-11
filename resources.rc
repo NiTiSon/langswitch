@@ -1,0 +1,90 @@
+#include <Windows.h>
+
+#define OWNER "NiTiSon\0"
+#define COPYRIGHT "Copyright (c) 2026 NiTiSon\0"
+#define VERSION_STR "1.0.0.0\0"
+
+// Version Information
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  1,0,0,0
+FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+FILEFLAGS       0x0L
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_APP
+FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0" // U.S. English, Unicode CP
+        BEGIN
+            VALUE "CompanyName",      OWNER
+            VALUE "FileDescription",  "Utility to switch languages by CAPSLOCK button.\0"
+            VALUE "FileVersion",      VERSION_STR
+            VALUE "InternalName",     "langswitch\0"
+            VALUE "LegalCopyright",   COPYRIGHT
+            VALUE "OriginalFilename", "langswitch.exe\0"
+            VALUE "ProductName",      "LangSwitch\0"
+            VALUE "ProductVersion",   VERSION_STR
+        END
+        BLOCK "040704B0" // German, Unicode CP
+        BEGIN
+            VALUE "CompanyName",      OWNER
+            VALUE "FileDescription",  "Dienstprogramm zum Umschalten der Sprache mit der CAPSLOCK-Taste.\0"
+            VALUE "FileVersion",      VERSION_STR
+            VALUE "InternalName",     "langswitch\0"
+            VALUE "LegalCopyright",   COPYRIGHT
+            VALUE "OriginalFilename", "langswitch.exe\0"
+            VALUE "ProductName",      "LangSwitch\0"
+            VALUE "ProductVersion",   VERSION_STR
+        END
+        BLOCK "041904B0" // Russian, Unicode CP
+        BEGIN
+            VALUE "CompanyName",      OWNER
+            VALUE "FileDescription",  "Утилита для переключения языков с помощью кнопки CAPSLOCK.\0"
+            VALUE "FileVersion",      VERSION_STR
+            VALUE "InternalName",     "langswitch\0"
+            VALUE "LegalCopyright",   COPYRIGHT
+            VALUE "OriginalFilename", "langswitch.exe\0"
+            VALUE "ProductName",      "LangSwitch\0"
+            VALUE "ProductVersion",   VERSION_STR
+        END
+        BLOCK "041504B0" // Polish, Unicode CP
+        BEGIN
+            VALUE "CompanyName",      OWNER
+            VALUE "FileDescription",  "Narzędzie do przełączania języków za pomocą przycisku CAPSLOCK.\0"
+            VALUE "FileVersion",      VERSION_STR
+            VALUE "InternalName",     "langswitch\0"
+            VALUE "LegalCopyright",   COPYRIGHT
+            VALUE "OriginalFilename", "langswitch.exe\0"
+            VALUE "ProductName",      "LangSwitch\0"
+            VALUE "ProductVersion",   VERSION_STR
+        END
+        BLOCK "042204B0" // Ukrainian, Unicode CP
+        BEGIN
+            VALUE "CompanyName",      OWNER
+            VALUE "FileDescription",  "Утиліта для перемикання мов за допомогою кнопки CAPSLOCK.\0"
+            VALUE "FileVersion",      VERSION_STR
+            VALUE "InternalName",     "langswitch\0"
+            VALUE "LegalCopyright",   COPYRIGHT
+            VALUE "OriginalFilename", "langswitch.exe\0"
+            VALUE "ProductName",      "LangSwitch\0"
+            VALUE "ProductVersion",   VERSION_STR
+        END
+        BLOCK "041104B0" // Japanese, Unicode CP
+        BEGIN
+            VALUE "CompanyName",      OWNER
+            VALUE "FileDescription",  "CAPSLOCKキーで言語を切り替えるユーティリティ。\0"
+            VALUE "FileVersion",      VERSION_STR
+            VALUE "InternalName",     "langswitch\0"
+            VALUE "LegalCopyright",   COPYRIGHT
+            VALUE "OriginalFilename", "langswitch.exe\0"
+            VALUE "ProductName",      "LangSwitch\0"
+            VALUE "ProductVersion",   VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200, 0x0407, 1200, 0x0419, 1200, 0x0415, 1200, 0x0422, 1200, 0x0411, 1200
+    END
+END

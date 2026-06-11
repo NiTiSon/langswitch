@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  release:
+    types: [published, created]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup LLVM
+        uses: aminya/setup-llvm@v1
+        with:
+          llvm-version: 18
+
+      - name: Build
+        shell: cmd
+        run: build.cmd
+
+      - name: Upload Application
+        uses: softprops/action-gh-release@v2
+        with:
+          files: langswitch.exe
