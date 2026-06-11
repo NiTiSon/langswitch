@@ -46,14 +46,14 @@ void report_winapi(const TCHAR *msg) {
         goto EXIT;
     }
 
-    MessageBox(null, strings[1], _TEXT("Lang Switch Error"), MB_OK | MB_ICONERROR);
+    MessageBox(null, strings[1], _TEXT("LangSwitch Error"), MB_OK | MB_ICONERROR);
 EXIT:
     ExitProcess(1u);
 }
 
 [[noreturn]]
 void report_msg(const TCHAR *msg) {
-    MessageBox(null, msg, _TEXT("Lang Switch Error"), MB_OK | MB_ICONERROR);
+    MessageBox(null, msg, _TEXT("LangSwitch Error"), MB_OK | MB_ICONERROR);
     ExitProcess(1u);
 }
 
@@ -81,7 +81,7 @@ NEXT:
 }
 
 void main() {
-    HANDLE hEvent = CreateEvent(null, true, false, _TEXT("lang-switch"));
+    const HANDLE hEvent = CreateEvent(null, true, false, _TEXT("NiTiSonLangSwitch"));
 
     if (hEvent == null) {
         report_winapi(_TEXT("CreateEvent()"));
@@ -93,7 +93,17 @@ void main() {
 	}
 
     langswitch_hook = SetWindowsHookEx(WH_KEYBOARD_LL, hook_proc, GetModuleHandle(0), 0);
+    if (langswitch_hook == 0)
+		report_winapi(_T("SetWindowsHookEx()"));
 
+    MSG msg;
+	while (GetMessage(&msg, 0, 0, 0)) {
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+
+	UnhookWindowsHookEx(langswitch_hook);
+	CloseHandle(hEvent);
 EXIT:
     ExitProcess(0u);
 }
