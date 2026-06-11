@@ -19,7 +19,6 @@ jobs:
         uses: aminya/setup-cpp@v1
         with:
           compiler: llvm
-          version: 22
 
       - name: Build
         shell: cmd
