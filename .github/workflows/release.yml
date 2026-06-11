@@ -2,7 +2,7 @@ name: Release
 
 on:
   release:
-    types: [published]
+    types: [prereleased, created]
 
 permissions:
   contents: write
@@ -10,6 +10,7 @@ permissions:
 jobs:
   build:
     runs-on: windows-latest
+    if: github.event.release.draft == true
 
     steps:
       - name: Checkout
