@@ -1,6 +1,7 @@
 # LangSwitch
 
 Repurpose your **Caps Lock** key as a keyboard layout switcher on Windows.
+This utility is *Windows only*.
 
 > [!WARNING]
 > Program require **admin** privileges to work in file rename and file picker windows, due to some Windows limitations. Though **admin** privileges is not necessary to work.
@@ -16,7 +17,8 @@ irm https://github.com/NiTiSon/langswitch/releases/latest/download/install.ps1 |
 
 ## Uninstall
 
-Go to **Settings → Apps → Installed apps**, find **LangSwitch**, and click **Uninstall**. Or run `%LocalAppData%\langswitch\uninstall.ps1` manually.
+Go to **Settings → Apps → Installed apps**, find **LangSwitch**, and click **Uninstall**.  
+Or run `%LocalAppData%\langswitch\uninstall.ps1` manually.
 
 ## Build
 

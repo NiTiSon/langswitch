@@ -25,6 +25,8 @@ jobs:
         run: build.cmd
 
       - name: Upload Application
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
-          files: langswitch.exe
+          files: |
+            install.ps1
+            langswitch.exe
